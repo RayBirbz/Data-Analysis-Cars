@@ -26,6 +26,14 @@ new.head()
 # -- Additional Functions --
 
 # Every year's average
+def yearavg():
+    avgperyear = new.groupby('Year')['Selling_Price'].mean()
+    plt.bar(avgperyear.index, avgperyear.values, color='blue')
+    plt.title('Average Selling Price per Year')
+    plt.xlabel('Year', fontsize=12)
+    plt.ylabel('Average Selling Price')
+    plt.xticks(avgperyear.index, rotation=45)
+    plt.show()
 
 # Average selling price
 def avg_new():
@@ -168,6 +176,8 @@ def UI():
                     elif option == 3:
                         transmission_presentprice()
                     elif option == 4:
+                        yearavg()
+                    elif option == 5:
                         more_optionz = True
                         vis_options = False
                     else:
@@ -210,7 +220,8 @@ def vis_optionz():
           1 - Visualise the selling price over the years (scatter graph)
           2 - Visualise the present price over the years (scatter graph)
           3 - Visualise the relationship between transmission and present price (scatter graph)
-          4 - Go back
+          4 - Visualise the yearly average selling price (bar graph)
+          5 - Go back
           """)
 # Running the UI
 UI()
