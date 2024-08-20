@@ -25,6 +25,8 @@ new.head()
 
 # -- Additional Functions --
 
+# Every year's average
+
 # Average selling price
 def avg_new():
     average_new = new['Selling_Price'].mean()
@@ -105,13 +107,17 @@ def transmission_presentprice():
 def UI():
     try:
         main_options = True
+        more_optionz = False
+        vis_options = False
 
         while True: # The variables and IF statements that keep track of which options to show
             if main_options:
                 Options()
-            else:
+            elif more_optionz:
                 more_options()
-            if main_options: # The main opptions
+            else:
+                vis_optionz()
+            if main_options: # The main options
                 try:
                     option = int(input('Enter your selection: '))
                     if option == 1:
@@ -120,6 +126,7 @@ def UI():
                         ShowNew()
                     elif option == 3:
                         main_options = False
+                        more_optionz = True
                     elif option == 4:
                         new.info()
                     elif option == 5:
@@ -131,7 +138,7 @@ def UI():
 
                 except:
                     print("Please enter an option in the appropiate format.")
-            else: # The analysis options 
+            elif more_optionz: # The analysis options 
                 try:
                     option = int(input('Enter your selection: '))
                     if option == 1:
@@ -143,17 +150,31 @@ def UI():
                     elif option == 4:
                         most_least_expensive()
                     elif option == 5:
-                        sellingpriceevo()
+                        vis_options = True
+                        more_optionz = False
                     elif option == 6:
-                        presentpriceevo()
-                    elif option == 7:
-                        transmission_presentprice()
-                    elif option == 8:
                         main_options = True
                     else:
                         print('Please select a valid choice')
                 except:
                         print("Please enter an option in the appropiate format.")
+            else: #Visualisation options
+                try:
+                    option = int(input('Enter your selection: '))
+                    if option == 1:
+                        sellingpriceevo()
+                    elif option ==2:
+                        presentpriceevo()
+                    elif option == 3:
+                        transmission_presentprice()
+                    elif option == 4:
+                        more_optionz = True
+                        vis_options = False
+                    else:
+                        print('Please select a valid choice')
+                except:
+                        print("Please enter an option in the appropiate format.")
+
     except:
         print('Error')
         sys.exit()
@@ -178,10 +199,18 @@ def more_options():
           2 - Show the average present price (in AUD)
           3 - Show whether there are more automatic or manual cars in the dataset
           4 - Show the least and most expensive car in the list
-          5 - Visualise the selling price over the years (scatter graph)
-          6 - Visualise the present price over the years (scatter graph)
-          7 - Visualise the relationship between transmission and selling price (scatter graph)
-          8 - Go back
+          5 - Visualisation options
+          6 - Go back
+          """)
+    
+# Visualisation Options
+def vis_optionz():
+    print("""To view visualisations on the dataset of Cars, please select one of the options below: 
+          
+          1 - Visualise the selling price over the years (scatter graph)
+          2 - Visualise the present price over the years (scatter graph)
+          3 - Visualise the relationship between transmission and present price (scatter graph)
+          4 - Go back
           """)
 # Running the UI
 UI()
