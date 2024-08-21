@@ -19,7 +19,7 @@ conversion_rate = 100000 * 0.018
 original = pd.read_csv('Datasets/data/cardata.csv')
 
 # Setting up the new dataframe and its organised version
-new = pd.read_csv('Datasets/data/cardata.csv')
+new = pd.read_csv('Datasets/data/cardata.csv', on_bad_lines='warn')
 new = new.drop(columns=['Owner'], axis=1)
 new.head()
 
@@ -31,7 +31,7 @@ def yearavg():
     plt.bar(avgperyear.index, avgperyear.values, color='blue')
     plt.title('Average Selling Price per Year')
     plt.xlabel('Year', fontsize=12)
-    plt.ylabel('Average Selling Price')
+    plt.ylabel('Averaoge Selling Price')
     plt.xticks(avgperyear.index, rotation=45)
     plt.show()
 
@@ -83,6 +83,7 @@ def sellingpriceevo():
         x = 'Year',
         y = 'Selling_Price',
         color = 'blue',
+
         alpha = 0.3,
         title = 'Selling prices over the years'
     )
