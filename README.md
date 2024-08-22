@@ -11,6 +11,7 @@ Note: After quitting, you may need to load a new terminal to run it again.
 Side notes:
 - The UI has already converted lakh INR into AUD. 
 - If you want to view it in lakh INR, you can simply convert 'conversion_rate = 100000 * 0.018' into 'conversion_rate = 1'.
+- The data charts showcasing 'Sellling Price' and 'Current Price' however, are still in the same currency of **lakh INR**. 
 
 Credits:
 The CSV was sourced from Kaggle: https://www.kaggle.com/datasets/zahrayazdani81/carsdataset/data

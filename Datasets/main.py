@@ -189,6 +189,10 @@ def UI():
     except:
         print('Error')
         sys.exit()
+# READ me
+print('If you are unsure about this program in any way, please take a look at the README file attached! Thank you')
+
+
 
 # Main Options
 
