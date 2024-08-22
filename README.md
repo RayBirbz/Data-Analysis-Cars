@@ -13,6 +13,8 @@ Side notes:
 - If you want to view it in lakh INR, you can simply convert 'conversion_rate = 100000 * 0.018' into 'conversion_rate = 1'.
 - The data charts showcasing 'Sellling Price' and 'Current Price' however, are still in the same currency of **lakh INR**. 
 
+**PLEASE PLEASE IGNORE get-pip.py! It is not part of the program in any way.**
+
 Credits:
 The CSV was sourced from Kaggle: https://www.kaggle.com/datasets/zahrayazdani81/carsdataset/data
 UI was programmed by Ray Wong
